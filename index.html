@@ -1,0 +1,154 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylingKeyboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Virtual Key Board</title>
+    <style>
+        .active
+        {
+            transition: 0.1s ease-in;
+            background-color: lightgrey;
+            border: none;
+            outline: 0;
+            box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container"><div id="keyBoard">
+            <button class="key Esc">Esc</button>
+            <button class="key F1">F1</button>
+            <button class="key F2">F2</button>
+            <button class="key F3">F3</button>
+            <button class="key F4">F4</button>
+            <button class="key F5">F5</button>
+            <button class="key F6">F6</button>
+            <button class="key F7">F7</button>
+            <button class="key F8">F8</button>
+            <button class="key F9">F9</button>   
+            <!-- //10 -->
+            <button class="key F10">F10</button>
+            <button class="key F11">F11</button>
+            <button class="key F12">F12</button>
+            <button class="key Prtsc">PrtSc</button>
+            <button class="key Delete">Del</button> 
+            <button class="key ~">~</button>
+            <button class="key 1">1</button>
+            <button class="key 2">2</button>
+            <button class="key 3" data-value="Button 3">3</button>
+            <button class="key 4">4</button>    
+            <!-- //20 -->
+            <button class="key 5">5</button>
+            <button class="key 6">6</button>
+            <button class="key 7">7</button>
+            <button class="key 8">8</button>
+            <button class="key 9">9</button>
+            <button class="key 0">0</button>
+            <button class="key +">+</button>
+            <button class="key -">-</button>
+            <button class="key Backspace">Backspace</button>       
+             <!-- //29 -->
+
+
+            <button class="tab">Tab</button>
+            <!-- //30 -->
+            <button class="key">Q</button>
+            <button class="key">W</button>
+            <button class="key">E</button>
+            <button class="key">R</button>
+            <button class="key">T</button>
+            <button class="key">Y</button>
+            <button class="key">U</button>
+            <button class="key">I</button>
+            <button class="key">O</button>
+            <button class="key">P</button>
+            <!-- // 40 -->
+            <button class="key">[</button>
+            <button class="key">]</button>
+            <button class="key">|</button>
+            <!-- // 43 -->
+
+            <button class="caps">Caps Lock</button>
+            <!-- //44 -->
+            <button class="key">A</button>
+            <button class="key">S</button>
+            <button class="key">D</button>
+            <button class="key">F</button>
+            <button class="key">G</button>
+            <button class="key">H</button>
+            <button class="key">J</button>
+            <button class="key">K</button>
+            <button class="key">L</button>
+            <button class="key">;</button>
+            <button class="key">"</button>
+            <button class="key enter">Enter</button>
+            <!-- //56 -->
+            
+            <button class="shift">Shift</button>
+            <!-- //57 -->
+            <button class="key">Z</button>
+            <button class="key">X</button>
+            <button class="key">C</button>
+            <button class="key">V</button>
+            <button class="key">B</button>
+            <button class="key">N</button>
+            <button class="key">M</button>
+            <button class="key"><</button>
+            <button class="key">></button>
+            <button class="key">?</button>
+            <button class="key shift">Shift</button>
+            <!-- //68 -->
+
+            <button class="key">Ctrl</button>
+            <button class="key">Fn</button>
+            <!-- //70 -->
+            <button class="key">
+                <i class="fa-brands fa-windows" style="font-size:24px;color:lightseagreen"></i>
+            </button>
+            <button class="key">Alt</button>
+            <!-- //72 -->
+            <button class="key space" value=" ">Space</button>
+            <!-- //73 -->
+            <button class="key">Alt Gr</button>
+            <!-- //74 -->
+            <button class="key">Ctrl</button>
+            <!-- //75 -->
+            <button class="key">/</button>
+            <button class="key">*</button>
+
+            <button class="key hiddenGlobe">
+                <i class="fa-solid fa-globe"></i>       
+            </button>
+            <button class="key hiddenDelete" onclick="callHidden()">
+                <i class="fa-solid fa-delete-left"></i>        
+            </button>
+        </div>
+    </div>
+
+    <script>
+
+        var buttons = document.querySelectorAll('.key');
+        var buttonContainer = document.getElementById('keyBoard');
+
+        document.addEventListener('keydown', function (event) {
+            var key = event.key;
+            var Upperkey = key.toUpperCase();
+            var CapitalKey = (key.charAt(0).toUpperCase())+key.slice(1);
+
+            buttons.forEach(function (button) {
+                if (button.textContent === Upperkey || button.textContent === CapitalKey) {
+                    buttons.forEach(function (btn) {
+                        btn.classList.remove('active');
+                    });
+        
+                    button.classList.add('active');
+                }
+            });
+        });
+        
+    </script>
+</body>
+</html>

@@ -1,19 +1,19 @@
-// document.addEventListener("keypress",function(event)
-// {
-//     key_press_event(event.key);
-// });
 
+var buttons = document.querySelectorAll('.key');
+var buttonContainer = document.getElementById('keyBoard');
 
-// var length_char = document.querySelectorAll(".keys").length;
+document.addEventListener('keydown', function (event) {
+    var key = event.key;
+    var Upperkey = key.toUpperCase();
+    var CapitalKey = (key.charAt(0).toUpperCase())+key.slice(1);
 
+    buttons.forEach(function (button) {
+        if (button.textContent === Upperkey || button.textContent === CapitalKey) {
+            buttons.forEach(function (btn) {
+                btn.classList.remove('active');
+            });
 
-// function key_press_event(key)
-// {
-//     alert(typeof(key))
-//     document.querySelector("."+key).classList.add("light");
-//     setTimeout(function()
-//     {
-//         document.querySelector("."+key).classList.remove("light")
-//     },300)
-// }
-
+            button.classList.add('active');
+        }
+    });
+});
